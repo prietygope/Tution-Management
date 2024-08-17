@@ -51,7 +51,7 @@ The system consists of four main tables:
 
 ```sql
 CREATE DATABASE TuitionManagement;
-USE TuitionManagement;
+USE TuitionManagement;```
 
 ### 2. Create Tables
 Student Table
