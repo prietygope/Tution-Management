@@ -54,7 +54,7 @@ CREATE DATABASE TuitionManagement;
 USE TuitionManagement;
 
 ### 2. Create Tables
-`Student Table`
+Student Table
 CREATE TABLE Students (
     StudentID INT PRIMARY KEY AUTO_INCREMENT,
     FirstName VARCHAR(50),
@@ -64,4 +64,58 @@ CREATE TABLE Students (
     PhoneNumber VARCHAR(15),
     Email VARCHAR(100)
 );
+
+Courses Table
+CREATE TABLE Courses (
+    CourseID INT PRIMARY KEY AUTO_INCREMENT,
+    CourseName VARCHAR(100),
+    Description TEXT,
+    DurationInWeeks INT,
+    Fee DECIMAL(10, 2)
+);
+
+Batches Table
+CREATE TABLE Batches (
+    BatchID INT PRIMARY KEY AUTO_INCREMENT,
+    BatchName VARCHAR(50),
+    StartDate DATE,
+    EndDate DATE
+);
+
+Enrollment Table
+CREATE TABLE Enrollment (
+    EnrollmentID INT PRIMARY KEY AUTO_INCREMENT,
+    StudentID INT,
+    CourseID INT,
+    BatchID INT,
+    EnrollmentDate DATE,
+    FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
+    FOREIGN KEY (CourseID) REFERENCES Courses(CourseID),
+    FOREIGN KEY (BatchID) REFERENCES Batches(BatchID)
+);
+
+### 3. Insert Data
+
+Insert Students
+INSERT INTO Courses (CourseName, Description, DurationInWeeks, Fee)
+VALUES 
+('Mathematics', 'Basic Math Course', 12, 300.00),
+('Physics', 'Introductory Physics Course', 10, 350.00);
+
+Insert Batches
+INSERT INTO Batches (BatchName, StartDate, EndDate)
+VALUES 
+('Batch A', '2024-08-01', '2024-10-31'),
+('Batch B', '2024-09-01', '2024-11-30');
+
+Insert Enrollment Records
+INSERT INTO Enrollment (StudentID, CourseID, EnrollmentDate, BatchID)
+VALUES 
+(1, 1, '2024-08-01', 1),  -- John Doe in Batch A
+(2, 2, '2024-09-01', 2);  -- Jane Smith in Batch B
+
+
+### 4. Queries
+
+
 
