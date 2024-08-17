@@ -53,3 +53,15 @@ The system consists of four main tables:
 CREATE DATABASE TuitionManagement;
 USE TuitionManagement;
 
+### 2. Create Tables
+`Student Table`
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY AUTO_INCREMENT,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    DateOfBirth DATE,
+    Gender VARCHAR(10),
+    PhoneNumber VARCHAR(15),
+    Email VARCHAR(100)
+);
+
